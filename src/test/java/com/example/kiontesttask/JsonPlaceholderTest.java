@@ -21,7 +21,6 @@ public class JsonPlaceholderTest {
         RestAssured.baseURI = "https://jsonplaceholder.typicode.com";
     }
 
-    //TODO Добавить логирование по шагам в allure
     @Test
     @DisplayName("Получение списка POST запросов")
     public void getListOfPosts() {
