@@ -37,8 +37,8 @@ public class JSONPlaceholderTest {
     @Test
     @DisplayName("Добавление новой записи POST")
     public void addNewPost() {
-        PostMethods postNewPostPage = new PostMethods();
-        postNewPostPage.PostNewPost(11, "New Post", "New created post makes my life better");
+        PostMethods postNewPostPage = new PostMethods(11, "New Post", "New created post makes my life better");
+        postNewPostPage.SendNewPost();
     }
 }
 

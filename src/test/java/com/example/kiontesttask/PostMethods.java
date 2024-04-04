@@ -16,14 +16,14 @@ public class PostMethods {
     private String currentBody;
     private final AllureLogger LOG = new AllureLogger(LoggerFactory.getLogger(AllureLogger.class));
 
-
-    public void PostNewPost(int userID, String title, String body) {
-        RestAssured.baseURI = "https://jsonplaceholder.typicode.com";
-        currentUserId = userID;
+    public PostMethods (Integer userId, String title, String body) {
+        currentUserId = userId;
         currentTitle = title;
         currentBody = body;
+    }
+    public void SendNewPost() {
         Map<String, String> request = new HashMap<>();
-        request.put("userId", String.valueOf(currentUserId));
+        request.put("userId", currentUserId.toString());
         request.put("title", currentTitle);
         request.put("body", currentBody);
         given().contentType("application/json")
