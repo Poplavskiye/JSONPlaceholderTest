@@ -1,12 +1,9 @@
 package com.example.kiontesttask;
 
 import Helpers.AllureLogger;
-import Helpers.GetMethods;
-import Helpers.PostMethods;
+import Requests.GetMethods;
+import Requests.PostMethods;
 import io.restassured.RestAssured;
-import io.restassured.path.json.JsonPath;
-import io.restassured.response.Response;
-import io.restassured.specification.RequestSpecification;
 import org.junit.jupiter.api.*;
 
 import org.slf4j.LoggerFactory;
@@ -25,14 +22,15 @@ public class JsonPlaceholderTest {
     @DisplayName("Получение списка POST запросов")
     public void getListOfPosts() {
         GetMethods getMethods = new GetMethods("/posts");
-        LOG.info("Получение списка постов");
+
 
         List<String> allPosts = getMethods.getAllPosts();
 
-        LOG.info("Вывод названия полученных постов");
+        LOG.info("Вывод названий полученных постов");
         for (String post : allPosts) {
             LOG.info("Получен Пост: " + post);
         }
+        Assertions.assertTrue(allPosts.size() > 0, "Нет ни одного поста в полученном от системы списке");
 
     }
 
